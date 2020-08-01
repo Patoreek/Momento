@@ -1,0 +1,87 @@
+@import '../../sass/abstracts/variables';
+
+.btn {
+
+   
+    .btnButton {
+        display: inline-block;
+        //background: linear-gradient(180deg, rgba(72,10,131,.7) 0%, rgba(97,0,190,.7) 100%);
+        //background: linear-gradient(rgba(33, 131, 128, .8), rgba(24, 98, 95, .8));
+        background: $color-secondary-light;
+        box-shadow: 0 1.5rem 2rem rgba($color-black, .3);
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        transition: all .3s ease;
+        z-index: 10;
+        text-transform: uppercase;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        // Style for Main menu button
+        padding: 1rem 3rem;
+        margin: 0 4rem;
+
+        span {
+            position: relative;
+            color: $color-white;
+            font-family: 'Staatliches', cursive; 
+            font-size: 2.5rem;
+            z-index: 10;
+        }
+
+        &::before {
+            position: absolute;
+            //transform: rotate(45deg);
+            content: "";
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image:linear-gradient(120deg, transparent, transparent 50%, rgba($color-secondary-dark, 0.386) 50%);
+            //background-image:linear-gradient(120deg, transparent, transparent 50%, rgba($color-light-1, 0.386) 50%);
+            background-size:225%;
+            transition: .3s ease;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            bottom: 0;
+            right: 0;
+            width: 0%;
+            height: 3px;
+            background-color: rgba($color-secondary-dark, .4);
+            transition: .3s ease;
+
+
+        }
+
+        &:hover::after, &:active::after, &:focus::after {
+            width: 100%;
+        }
+
+        &:hover::before, &:active::before, &:focus::before  {
+            opacity: 1;
+            background-position: 100%;
+        }
+        
+
+        &:hover {
+            transform: translateY(-3px) scale(1.1);
+            //filter: brightness(70%);
+            box-shadow: 0.5rem 1.7rem 1.5rem rgba($color-black, .6);        }
+
+        &:active,
+        &:focus, {
+            transform: translateY(-1px) scale(1);
+            //filter: brightness(90%); 
+            box-shadow: 0 1.2rem 3.5rem rgba($color-black, .5);
+        }
+    }
+
+}

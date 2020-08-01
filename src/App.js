@@ -3,11 +3,17 @@ import './App.scss';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import MenuView from './containers/MenuView/MenuView';
+import Footer from './containers/Footer/Footer';
+
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-         <h1 className="template__header">WE ARE IN BUSINESS IN THE REACT DEPARTMENT AND READ TO GO!</h1>
+        <Route path="/" exact component={MenuView}/>
+        <Footer/>
     </div>
+    </BrowserRouter>
   );
 }
 
