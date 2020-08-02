@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.scss';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+// import { BrowserRouter, Route } from 'react-router-dom';
+// No need for routes or paths
 
 import MenuView from './containers/MenuView/MenuView';
+import GameView from './containers/GameView/GameView';
+
 import Footer from './containers/Footer/Footer';
 
+import { ViewContext }from './context/GlobalContext';
+
 function App() {
+
+
+  const [view, setView] = useContext(ViewContext);
+
   return (
-    <BrowserRouter>
     <div className="App">
-        <Route path="/" exact component={MenuView}/>
+       {view ==="Menu" ?  <MenuView/> : ''}
+       {view ==="Game" ?   <GameView/> : ''}
         <Footer/>
+
     </div>
-    </BrowserRouter>
+    
   );
 }
 

@@ -1,0 +1,105 @@
+@import '../../sass/abstracts/variables';
+
+.gameView {
+    width: 100%;
+    height: 90vh;
+    background-color: orchid;
+    display: flex;
+    //align-items: start;
+    padding: 3rem 0;
+    justify-content: center;
+
+
+    .gameContainer {
+        width: 80%;
+        height: auto;
+        background-color: paleturquoise;
+        padding: 2rem;
+        border-radius: 5px;
+        display: grid;
+    }
+    
+    .grid {
+        display: grid;
+
+        &__16 {
+            //** 4 x 4 GRID **//
+            grid-template-columns: repeat(4, min-content);
+            grid-template-rows: repeat(4, min-content);
+        }
+
+        &__18 {
+            //** 3 x 6 GRID **//
+            grid-template-columns: repeat(6, min-content);
+            grid-template-rows: repeat(3, min-content);
+        }
+
+        &__36 {
+            // //** 6 x 6 GRID **//
+            grid-template-columns: repeat(6, min-content);
+            grid-template-rows: repeat(6, min-content);
+        }
+
+        &__64 {
+            //** 8 x 8 GRID **//
+            grid-template-columns: repeat(8, min-content);
+            grid-template-rows: repeat(8, min-content);
+        }
+
+
+       
+
+       
+
+       
+
+        grid-gap: 1rem;
+        justify-content: center;
+        align-content: center;
+
+
+        .card {
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgb(63, 63, 63),$color-black);
+            padding: 0;
+            border-radius: 5px;
+            border: 1px solid black;
+            transition: all .3s ease;
+            box-shadow: .2rem .5rem 1rem rgba($color-black, .8);
+
+            &:hover { 
+                transform: scale(1.1) translate(.5rem, -1rem);
+                box-shadow: .2rem 1rem 2rem rgba($color-black, .7);
+
+            }
+
+            .cardBackSVG {
+                fill: rgb(201, 185, 11);
+                opacity: 50%;
+
+                &__16, &__18 {
+                    //16 & 18 cards
+                    height: 14.5rem;
+                    width: 12rem;
+                }
+
+                &__36 {
+                    //36 cards
+                    height: 10.5rem;
+                    width: 8rem;
+                }
+
+                &__64 {
+                    //64 Cards
+                    height: 8rem;
+                    width: 6rem;
+                }
+
+                
+            }
+
+           
+        }
+    }
+}

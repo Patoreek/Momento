@@ -1,17 +1,27 @@
 import React, { useContext } from 'react';
 import classes from './GameList.module.scss';
 
-import { DifficultyContext } from '../../context/GlobalContext';
+import { DifficultyContext,
+         ViewContext,
+         ModeContext } from '../../context/GlobalContext';
 
 
 const GameList = () => {
 
     const [difficulty, setDifficulty] = useContext(DifficultyContext);
+    const [view, setView] = useContext(ViewContext);
+    const [mode, setMode] = useContext(ModeContext);
 
     const getGameDimensions = (dimNum1, dimNum2) => {
         console.log('Working on click');
         console.log('Dimnum1 -> ' + dimNum1);
         console.log('Dimnum2 -> ' + dimNum2);
+
+        setMode({
+           numPictures: dimNum1,
+           numPairs: dimNum2 
+        });
+        setView("Game");
     }
 
 
@@ -43,12 +53,12 @@ const GameList = () => {
                     <ul className={classes.list}>
                         <li className={classes.list__item, classes.list__header}><span>Medium</span></li>
                         <li className={classes.list__item}
-                            onClick={() => getGameDimensions(3, 12)} >
-                                <span className={classes.dimensionsText}>3 x 12</span>
-                        </li>
-                        <li className={classes.list__item}
                             onClick={() => getGameDimensions(3, 6)}>
                                 <span className={classes.dimensionsText}>3 x 6</span>
+                        </li>
+                        <li className={classes.list__item}
+                            onClick={() => getGameDimensions(3, 12)} >
+                                <span className={classes.dimensionsText}>3 x 12</span>
                         </li>
                     </ul>
                 )}
@@ -57,10 +67,6 @@ const GameList = () => {
                 {difficulty === "Hard" && (
                     <ul className={classes.list}>
                         <li className={classes.list__item, classes.list__header}><span>Hard</span></li>
-                        <li className={classes.list__item}
-                            onClick={() => getGameDimensions(4, 8)}>
-                                <span className={classes.dimensionsText}>4 x 8</span>
-                        </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(4, 16)}>
                                 <span className={classes.dimensionsText}>4 x 16</span>

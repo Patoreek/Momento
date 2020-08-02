@@ -14,9 +14,9 @@ const MenuView = () => {
                  A Challenging minigame of memory.
              </span>
             <div className={classes.buttonContainer}>
-                <Button gameDiff="Easy"></Button>
-                <Button gameDiff="Medium"></Button>
-                <Button gameDiff="Hard"></Button>
+                <Button type="Easy">Easy</Button>
+                <Button type="Medium">Medium</Button>
+                <Button type="Hard">Hard</Button>
             </div>
             <div className={classes.gameListContainer}>
                 <GameList></GameList>

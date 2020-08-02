@@ -2,7 +2,8 @@ import React, {useContext} from 'react';
 
 import classes from './Button.module.scss';
 
-import { DifficultyContext } from '../../context/GlobalContext';
+import { DifficultyContext,
+         ViewContext } from '../../context/GlobalContext';
 
 
 
@@ -10,13 +11,19 @@ const Button = (props) => {
 
     const [difficulty, setDifficulty] = useContext(DifficultyContext);
 
-    const displayDifficulty = () => {
-        if (props.gameDiff === "Easy") {
+    const [view, setView] = useContext(ViewContext);
+
+
+    const buttonHandler = () => {
+
+        if (props.type === "Easy") {
             setDifficulty("Easy");
-        } else if (props.gameDiff === "Medium") {
+        } else if (props.type === "Medium") {
             setDifficulty("Medium");
-        } else if (props.gameDiff === "Hard") {
+        } else if (props.type === "Hard") {
             setDifficulty("Hard");
+        } else if (props.type === "Back") {
+            setView("Menu");
         }
 
         //console.log('The chosen difficulty is: ' + difficulty);
@@ -25,7 +32,7 @@ const Button = (props) => {
     return (
         <div className={classes.btn}>
                 <button className={classes.btnButton}
-                        onClick={displayDifficulty}><span>{props.gameDiff}</span></button>
+                        onClick={buttonHandler}><span>{props.children}</span></button>
         </div>
     );
 };
