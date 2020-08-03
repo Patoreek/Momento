@@ -18,8 +18,8 @@ const GameList = () => {
         console.log('Dimnum2 -> ' + dimNum2);
 
         setMode({
-           numPictures: dimNum1,
-           numPairs: dimNum2 
+           numPictures: dimNum2,
+           numPairs: dimNum1 
         });
         setView("Game");
     }

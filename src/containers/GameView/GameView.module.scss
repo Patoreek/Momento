@@ -3,19 +3,23 @@
 .gameView {
     width: 100%;
     height: 90vh;
-    background-color: orchid;
-    display: flex;
-    //align-items: start;
+    background-image: linear-gradient(to top left, $color-primary-light, $color-primary-dark);
     padding: 3rem 0;
+    // display: flex;
     justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr repeat(8,  min-content) 1fr;
 
 
     .gameContainer {
-        width: 80%;
+        width: auto;
         height: auto;
-        background-color: paleturquoise;
+        //background-color: paleturquoise;
+        background: rgba($color-white, .9);
         padding: 2rem;
         border-radius: 5px;
+        grid-column: 2 / span 8;
         display: grid;
     }
     
@@ -46,11 +50,6 @@
             grid-template-rows: repeat(8, min-content);
         }
 
-
-       
-
-       
-
        
 
         grid-gap: 1rem;
@@ -61,45 +60,115 @@
         .card {
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(rgb(63, 63, 63),$color-black);
             padding: 0;
-            border-radius: 5px;
-            border: 1px solid black;
-            transition: all .3s ease;
-            box-shadow: .2rem .5rem 1rem rgba($color-black, .8);
+            transition: all 1s ease;
+            position: relative;
+            //overflow:hidden;
+            border-radius:5px;
 
-            &:hover { 
-                transform: scale(1.1) translate(.5rem, -1rem);
-                box-shadow: .2rem 1rem 2rem rgba($color-black, .7);
+            // &:hover .cardBack {
+            //     transform: rotateY(180deg);
+            // }    
 
+            // &:hover .cardFront {
+            //     transform: rotateY(360deg);
+            // }
+
+            
+            .cardBack {
+                background-image: radial-gradient(rgb(63, 63, 63),$color-black);
+                backface-visibility: hidden;
+                transition: all .5s ease;
+                border-radius: 5px;
+                perspective: 150rem;
+                -moz-perspective: 150rem;
+                box-shadow: .2rem .5rem 1rem rgba($color-black, .8);
+
+                &__flipped {
+
+                    transform: rotateY(180deg);
+                    //opacity: 0;
+
+                }
+    
+                
+                .cardBackSVG {
+                    fill: rgb(201, 185, 11);
+                    opacity: 50%;
+                    backface-visibility: hidden;
+    
+    
+                    &__16, &__18 {
+                        //16 & 18 cards
+                        height: 14.5rem;
+                        width: 12rem;
+                    }
+    
+                    &__36 {
+                        //36 cards
+                        height: 10.5rem;
+                        width: 8rem;
+                    }
+    
+                    &__64 {
+                        //64 Cards
+                        height: 8rem;
+                        width: 6rem;
+                    }
+    
+                    
+                }
             }
 
-            .cardBackSVG {
-                fill: rgb(201, 185, 11);
-                opacity: 50%;
+            .cardFront {
+                background-color: $color-white;
+                color: blue;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width:100%;
+                height: 100%;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                transition: all .5s ease;
 
-                &__16, &__18 {
-                    //16 & 18 cards
-                    height: 14.5rem;
-                    width: 12rem;
-                }
+                border-radius: 5px;
+                perspective: 150rem;
+                -moz-perspective: 150rem;
+                box-shadow: .2rem .5rem 1rem rgba($color-black, .8);
 
-                &__36 {
-                    //36 cards
-                    height: 10.5rem;
-                    width: 8rem;
-                }
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
-                &__64 {
-                    //64 Cards
-                    height: 8rem;
-                    width: 6rem;
+
+                .emojiIcon {
+                     font-size: 6rem;
                 }
 
                 
+                &__flipped {
+
+                    transform: rotateY(360deg);
+                    //opacity: 0;
+
+                }
+
+                // display: none;
             }
+
+   
+ 
+
+                
+
+        
+
+
 
            
         }
+
     }
 }
