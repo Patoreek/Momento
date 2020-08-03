@@ -3,7 +3,10 @@ import shuffle from 'shuffle-array';
 
 import classes from './GameView.module.scss';
 
-import {ModeContext} from '../../context/GlobalContext';
+import { ModeContext,
+         FlipCountContext,
+         FlipAllContext,
+         FlipResetContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
@@ -49,6 +52,24 @@ const GameView = () => {
     const [cardSize, setCardSize] = useState(1);
 
     const [isLoading, setIsLoading] = useState(true);
+
+    const [flipCount, setFlipCount] = useContext(FlipCountContext);
+
+    const [flipAll, setFlipAll] = useContext(FlipAllContext);
+
+    const [flipReset, setFlipReset] = useContext(FlipResetContext);
+
+
+
+    useEffect(() => {
+        //console.log('In flipcount useeffect');
+        if (flipCount === mode.numPairs){
+            // FLIP ALL TO FALSE
+            console.log('FLIPCARD USEEFFECT HAS FOUND THAT FLIPCOUNT EQUALS NUM OF PAIRS! RESET CARDS NOW!');
+            setFlipCount(0);
+            setFlipReset(true);
+        }
+    }, [flipCount]);
 
 
 
@@ -117,6 +138,8 @@ const GameView = () => {
 
     },[]);
 
+    
+
     return (
         <div className={classes.gameView}>
             <Button type="Back">MENU</Button>
@@ -133,8 +156,6 @@ const GameView = () => {
                 </div>
 
             )}
-        
-            
 
         </div>
     );

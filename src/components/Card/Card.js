@@ -4,7 +4,7 @@ import classes from './Card.module.scss';
 
 import {ReactComponent as CardBackSVG} from '../../img/card-texture.svg';
 
-import { FlipAllContext } from '../../context/GlobalContext';
+import { FlipAllContext, FlipCountContext, FlipResetContext } from '../../context/GlobalContext';
 
 
 
@@ -15,6 +15,12 @@ const Card = (props) => {
 
 
     const [flipAll, setFlipAll] = useContext(FlipAllContext);
+
+    const [flipCount, setFlipCount] = useContext(FlipCountContext);
+
+    const [flipReset, setFlipReset] = useContext(FlipResetContext);
+
+
 
 
     const [isFlipped, setIsFlipped] = useState(false);
@@ -54,19 +60,32 @@ const Card = (props) => {
             setIsFlipped(false);
     
         }
+
     },[flipAll]);
+
+    useEffect(() => {
+        if (flipReset) {
+            setTimeout(() => {
+                setIsFlipped(false);
+                setFlipReset(false);
+            }, 1500);
+        } 
+
+    },[flipReset]);
 
     const flipCard = (givenCard) => {
         console.log("Flipping card");
         console.log(givenCard);
 
-    
         if (!isFlipped){
             setIsFlipped(true);
-        } else {
-            setIsFlipped(false);
-    
-        }
+            setFlipCount(flipCount + 1);
+        } 
+        // else {
+        //     setIsFlipped(false);
+        // }
+        console.log(flipCount);
+
     }
 
 
