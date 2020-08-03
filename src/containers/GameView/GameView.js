@@ -6,7 +6,8 @@ import classes from './GameView.module.scss';
 import { ModeContext,
          FlipCountContext,
          FlipAllContext,
-         FlipResetContext } from '../../context/GlobalContext';
+         FlipResetContext,
+         GuessArrayContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
@@ -16,6 +17,9 @@ const GameView = () => {
 
 
     const [mode, setMode] = useContext(ModeContext); 
+
+    const [guessArray, setGuessArray] = useContext(GuessArrayContext);
+
     // mode.numPictures
     // mode.numPairs
 
@@ -34,8 +38,6 @@ const GameView = () => {
 
     let cardCount = 0;
     let pictureCount = 0;
-
-    let flipCounter = 1;
 
     let cardsArrayLocal = [];
 
@@ -59,20 +61,42 @@ const GameView = () => {
 
     const [flipReset, setFlipReset] = useContext(FlipResetContext);
 
+    const checkCards = () => {
+        console.log("checking cards");
+        console.log(guessArray);
+        
+        let count = -1;
+
+        let matched = false;
+
+        // CHECKS IF IT MATCHES THE FIRST CARD WITH EVERY OTHER CARD
+        const matching = (currentValue) => currentValue === guessArray[0];
+        //console.log(guessArray.every(matching));
+
+        if (guessArray.every(matching)){     // IF THEY MATCH
+            console.log("MATCHED PICTURES");
+        } else {
+            console.log("WRONG TRY AGAIN!");
+        }
+
+    }
 
 
+    // FLIP COUNTER AND RESETTER
     useEffect(() => {
         //console.log('In flipcount useeffect');
         if (flipCount === mode.numPairs){
             // FLIP ALL TO FALSE
             console.log('FLIPCARD USEEFFECT HAS FOUND THAT FLIPCOUNT EQUALS NUM OF PAIRS! RESET CARDS NOW!');
+            checkCards();
             setFlipCount(0);
+            setGuessArray([]);
             setFlipReset(true);
         }
     }, [flipCount]);
 
 
-
+    // CREATE GRID
     useEffect(() => {
 
         if (totalNum === 16){

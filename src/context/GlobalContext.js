@@ -12,6 +12,8 @@ export const FlipCountContext = createContext();
 
 export const FlipResetContext = createContext();
 
+export const GuessArrayContext = createContext();
+
 
 
 
@@ -29,10 +31,12 @@ export const GlobalProvider = (props) => {
 
     const [flipAll, setFlipAll] = useState(false);
 
-    const [flipCount, setFlipCount] = useState(mode.numPairs);
+    //const [flipCount, setFlipCount] = useState(mode.numPairs);
+    const [flipCount, setFlipCount] = useState(0);
 
     const [flipReset, setFlipReset] = useState(false);
 
+    const [guessArray, setGuessArray] = useState([]);
 
     
     return (
@@ -43,9 +47,11 @@ export const GlobalProvider = (props) => {
                     <FlipAllContext.Provider value={[flipAll, setFlipAll]}>
                         <FlipCountContext.Provider value={[flipCount, setFlipCount]}>
                             <FlipResetContext.Provider value={[flipReset, setFlipReset]}>
+                                <GuessArrayContext.Provider value={[guessArray, setGuessArray]}>
 
-                                {props.children}
+                                    {props.children}
 
+                                </GuessArrayContext.Provider>
                             </FlipResetContext.Provider>
                         </FlipCountContext.Provider>
                     </FlipAllContext.Provider>

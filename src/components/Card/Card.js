@@ -4,7 +4,11 @@ import classes from './Card.module.scss';
 
 import {ReactComponent as CardBackSVG} from '../../img/card-texture.svg';
 
-import { FlipAllContext, FlipCountContext, FlipResetContext } from '../../context/GlobalContext';
+import { FlipAllContext,
+         FlipCountContext,
+         FlipResetContext,
+         ModeContext,
+         GuessArrayContext } from '../../context/GlobalContext';
 
 
 
@@ -19,6 +23,11 @@ const Card = (props) => {
     const [flipCount, setFlipCount] = useContext(FlipCountContext);
 
     const [flipReset, setFlipReset] = useContext(FlipResetContext);
+
+    const [mode, setMode] = useContext(ModeContext);
+
+    const [guessArray, setGuessArray] = useContext(GuessArrayContext);
+
 
 
 
@@ -74,17 +83,23 @@ const Card = (props) => {
     },[flipReset]);
 
     const flipCard = (givenCard) => {
-        console.log("Flipping card");
+        //console.log("Flipping card");
         console.log(givenCard);
 
-        if (!isFlipped){
-            setIsFlipped(true);
-            setFlipCount(flipCount + 1);
-        } 
-        // else {
-        //     setIsFlipped(false);
-        // }
-        console.log(flipCount);
+                if (!flipReset){
+
+                    if (!isFlipped){
+                        setIsFlipped(true);
+
+                        // TODO: STORE CARD PICTURE ID IN STATE ARRAY THEN CHECK IF THEY ARE === //
+                        setGuessArray([...guessArray, givenCard.pictureID]);
+
+                        setFlipCount(flipCount + 1);
+                    } 
+                   
+                }
+            
+        console.log(guessArray);
 
     }
 
