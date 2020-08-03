@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const DifficultyContext = createContext();
 
@@ -13,6 +13,12 @@ export const FlipCountContext = createContext();
 export const FlipResetContext = createContext();
 
 export const GuessArrayContext = createContext();
+
+export const CardArrayContext = createContext();
+
+export const MatchedContext = createContext();
+
+
 
 
 
@@ -38,7 +44,11 @@ export const GlobalProvider = (props) => {
 
     const [guessArray, setGuessArray] = useState([]);
 
-    
+    const [cardArray, setCardArray] = useState([]);
+
+
+    const [matched, setMatched] = useState(false);
+
     return (
 
         <DifficultyContext.Provider value = {[difficulty, setDifficulty]}>
@@ -48,9 +58,13 @@ export const GlobalProvider = (props) => {
                         <FlipCountContext.Provider value={[flipCount, setFlipCount]}>
                             <FlipResetContext.Provider value={[flipReset, setFlipReset]}>
                                 <GuessArrayContext.Provider value={[guessArray, setGuessArray]}>
+                                    <CardArrayContext.Provider value={[cardArray, setCardArray]}>
+                                        <MatchedContext.Provider value={[matched, setMatched]}>
 
-                                    {props.children}
+                                            {props.children}
 
+                                        </MatchedContext.Provider>
+                                    </CardArrayContext.Provider>
                                 </GuessArrayContext.Provider>
                             </FlipResetContext.Provider>
                         </FlipCountContext.Provider>

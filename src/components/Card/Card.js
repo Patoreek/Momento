@@ -8,7 +8,10 @@ import { FlipAllContext,
          FlipCountContext,
          FlipResetContext,
          ModeContext,
-         GuessArrayContext } from '../../context/GlobalContext';
+         GuessArrayContext,
+         CardArrayContext,
+         MatchedContext
+        } from '../../context/GlobalContext';
 
 
 
@@ -28,6 +31,11 @@ const Card = (props) => {
 
     const [guessArray, setGuessArray] = useContext(GuessArrayContext);
 
+    const [cardArray, setCardArray] = useContext(CardArrayContext);
+
+    const [matched, setMatched] = useContext(MatchedContext);
+
+
 
 
 
@@ -37,6 +45,8 @@ const Card = (props) => {
     const [svgClass, setSvgClass]  = useState(null);
 
     const [isLoading, setIsLoading ] = useState(true);
+
+    const [disappearClass, setDisappearClass] = useState(null);
 
 
     
@@ -73,6 +83,28 @@ const Card = (props) => {
     },[flipAll]);
 
     useEffect(() => {
+        if (matched){
+            console.log('INSIDE USE-EFFECT FOR MATCHING!');
+            cardArray.map(id => {
+                //console.log(id);
+                //console.log(props.card.cardID);
+                if (props.card.cardID == id) {
+                    console.log("this cards ID matches the flipped Card.");
+                    setTimeout(() => {
+                    setDisappearClass(classes.disappear);
+                    }, 1000);
+                    
+                } else {
+                    console.log("Incorrect Card.")
+                }
+            })
+            setMatched(false);
+        }
+
+    },[matched]);
+
+    useEffect(() => {
+
         if (flipReset) {
             setTimeout(() => {
                 setIsFlipped(false);
@@ -93,19 +125,25 @@ const Card = (props) => {
 
                         // TODO: STORE CARD PICTURE ID IN STATE ARRAY THEN CHECK IF THEY ARE === //
                         setGuessArray([...guessArray, givenCard.pictureID]);
+                        setCardArray([...cardArray, givenCard.cardID]);
 
                         setFlipCount(flipCount + 1);
                     } 
                    
                 }
-            
+
+        console.log("GUESS ARRAY");
         console.log(guessArray);
+
+        console.log("CARD ARRAY");
+        console.log(cardArray);
+
 
     }
 
 
     return (
-            <div className={`${classes.card}`} onClick={() => flipCard(props.card)} id={props.card.cardID}>
+            <div className={`${classes.card} ${disappearClass}`} onClick={() => flipCard(props.card)} id={props.card.cardID}>
             {/* <h3>{card.cardID}</h3> */}
 
             {!isLoading && (

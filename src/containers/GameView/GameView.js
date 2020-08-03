@@ -7,7 +7,9 @@ import { ModeContext,
          FlipCountContext,
          FlipAllContext,
          FlipResetContext,
-         GuessArrayContext } from '../../context/GlobalContext';
+         GuessArrayContext,
+         CardArrayContext,
+         MatchedContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
@@ -19,6 +21,11 @@ const GameView = () => {
     const [mode, setMode] = useContext(ModeContext); 
 
     const [guessArray, setGuessArray] = useContext(GuessArrayContext);
+    
+    const [cardArray, setCardArray] = useContext(CardArrayContext);
+
+    const [matched, setMatched] = useContext(MatchedContext);
+
 
     // mode.numPictures
     // mode.numPairs
@@ -61,25 +68,6 @@ const GameView = () => {
 
     const [flipReset, setFlipReset] = useContext(FlipResetContext);
 
-    const checkCards = () => {
-        console.log("checking cards");
-        console.log(guessArray);
-        
-        let count = -1;
-
-        let matched = false;
-
-        // CHECKS IF IT MATCHES THE FIRST CARD WITH EVERY OTHER CARD
-        const matching = (currentValue) => currentValue === guessArray[0];
-        //console.log(guessArray.every(matching));
-
-        if (guessArray.every(matching)){     // IF THEY MATCH
-            console.log("MATCHED PICTURES");
-        } else {
-            console.log("WRONG TRY AGAIN!");
-        }
-
-    }
 
 
     // FLIP COUNTER AND RESETTER
@@ -88,9 +76,26 @@ const GameView = () => {
         if (flipCount === mode.numPairs){
             // FLIP ALL TO FALSE
             console.log('FLIPCARD USEEFFECT HAS FOUND THAT FLIPCOUNT EQUALS NUM OF PAIRS! RESET CARDS NOW!');
-            checkCards();
+            
+        // CHECKS IF IT MATCHES THE FIRST CARD WITH EVERY OTHER CARD
+            const matching = (currentValue) => currentValue === guessArray[0];
+            //console.log(guessArray.every(matching));
+
+            if (guessArray.every(matching)){     // IF THEY MATCH
+                console.log("MATCHED PICTURES");
+
+                setMatched(true);
+              
+
+            } else {
+                console.log("WRONG TRY AGAIN!");
+                setMatched(false);
+                setCardArray([]);
+
+            }
             setFlipCount(0);
             setGuessArray([]);
+            //setCardArray([]);
             setFlipReset(true);
         }
     }, [flipCount]);
