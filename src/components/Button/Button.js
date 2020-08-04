@@ -5,8 +5,12 @@ import classes from './Button.module.scss';
 import { DifficultyContext,
          ViewContext,
          FlipAllContext,
-         StartTimerContext } from '../../context/GlobalContext';
-
+         StartTimerContext,
+         TimerContext,
+         GameOverContext,
+         CorrectCountContext,
+         GuessArrayContext,
+         FlipCountContext } from '../../context/GlobalContext';
 
 
 const Button = (props) => {
@@ -20,6 +24,17 @@ const Button = (props) => {
     const [btnClass, setBtnClass] = useState(null);
 
     const [ startTimer, setStartTimer ] = useContext(StartTimerContext);
+    
+    const [ timer, setTimer ] = useContext(TimerContext);
+
+    const [ correctCount, setCorrectCount ] = useContext(CorrectCountContext);
+
+    const [ gameOver, setGameOver ] = useContext(GameOverContext);
+
+    const [ guessArray, setGuessArray ] = useContext(GuessArrayContext);
+
+    const [ flipCount, setFlipCount ] = useContext(FlipCountContext);
+
 
     useEffect(() => {
         if (props.type === "Flip-all") {
@@ -52,6 +67,20 @@ const Button = (props) => {
             setView("Menu"); 
             // Stop Timer
             setStartTimer(false);
+            // reset Timer
+            setTimer(0);
+            // reset gameover
+            setGameOver(false);
+            // reset correctCount
+            setCorrectCount(0);
+            // reset guessArray
+            setGuessArray([]);
+            // reset flipCount
+            setFlipCount(0);
+
+            //! reset CardArray then reshuffle ?? maybe going back to menu then back into gameview will retrigger
+            //! useEffect and do it automatically
+
         }
         else if (props.type === "Flip-all") {
             setFlipAll(!flipAll);

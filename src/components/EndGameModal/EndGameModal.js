@@ -19,9 +19,7 @@ const EndGameModal = () => {
                         <div className={classes.menuBtn}>
                             <Button type="Back">Main Menu</Button>
                         </div>
-                        <div className={classes.playBtn}>
-                            <Button type="Back">Play Again</Button>
-                        </div>
+                        
                     </div>
               
                 </div>

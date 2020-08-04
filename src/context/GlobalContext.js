@@ -74,7 +74,7 @@ export const GlobalProvider = (props) => {
 
     const [modalContent, setModalContent] = useState(null);
 
-    const [correctCount, setCorrectCount] = useState(7); // Change this after finishing testing
+    const [correctCount, setCorrectCount] = useState(8); // Change this value to test endgameModal testing
 
     const [gameOver, setGameOver] = useState(false);
 
