@@ -26,6 +26,9 @@ export const ShowModalContext = createContext();
 
 export const ModalContentContext = createContext();
 
+export const CorrectCountContext = createContext();
+
+
 
 
 
@@ -67,7 +70,7 @@ export const GlobalProvider = (props) => {
 
     const [modalContent, setModalContent] = useState(null);
 
-
+    const [correctCount, setCorrectCount] = useState(7); // Change this after finishing testing
 
 
     return (
@@ -85,9 +88,11 @@ export const GlobalProvider = (props) => {
                                                 <GuessDisplayContext.Provider value={[guessDisplay, setGuessDisplay]}>
                                                     <ShowModalContext.Provider value={[showModal, setShowModal]}>
                                                         <ModalContentContext.Provider value={[modalContent, setModalContent]}>
+                                                            <CorrectCountContext.Provider value={[correctCount, setCorrectCount]}>
 
-                                                        {props.children}
+                                                                {props.children}
 
+                                                            </CorrectCountContext.Provider>
                                                         </ModalContentContext.Provider>
                                                     </ShowModalContext.Provider>
                                                 </GuessDisplayContext.Provider>

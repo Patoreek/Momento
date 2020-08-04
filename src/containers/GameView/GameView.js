@@ -10,12 +10,15 @@ import { ModeContext,
          GuessArrayContext,
          CardArrayContext,
          MatchedContext,
-         GuessDisplayContext } from '../../context/GlobalContext';
+         GuessDisplayContext,
+         CorrectCountContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
 import Timer from '../../components/Timer/Timer';
 import GuessDisplay from '../../components/GuessDisplay/GuessDisplay';
+import EndGameModal from '../../components/EndGameModal/EndGameModal';
+
 
 
 const GameView = () => {
@@ -73,6 +76,9 @@ const GameView = () => {
 
     const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
 
+    const [correctCount, setCorrectCount] = useContext(CorrectCountContext);
+
+
 
 
 
@@ -92,6 +98,7 @@ const GameView = () => {
                 console.log("MATCHED PICTURES");
 
                 setMatched(true);
+                setCorrectCount(correctCount => correctCount + 1);
               
 
             } else {
@@ -182,6 +189,8 @@ const GameView = () => {
             <Button type="Flip-all">FLIP ALL</Button>
             <Timer/>
             <GuessDisplay/>
+
+            {correctCount == mode.numPictures ? <EndGameModal/> : ''}
 
             {!isLoading && (
                 
