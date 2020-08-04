@@ -11,7 +11,9 @@ import { ModeContext,
          CardArrayContext,
          MatchedContext,
          GuessDisplayContext,
-         CorrectCountContext } from '../../context/GlobalContext';
+         CorrectCountContext,
+         StartTimerContext,
+         GameOverContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
@@ -78,8 +80,16 @@ const GameView = () => {
 
     const [correctCount, setCorrectCount] = useContext(CorrectCountContext);
 
+    const [startTimer, setStartTimer] = useContext(StartTimerContext);
+
+    const [gameOver, setGameOver] = useContext(GameOverContext);
 
 
+    useEffect(() => {
+        if (correctCount == mode.numPictures){
+            setGameOver(true);
+        }
+    },[correctCount])
 
 
     // FLIP COUNTER AND RESETTER
@@ -95,18 +105,19 @@ const GameView = () => {
             //console.log(guessArray.every(matching));
 
             if (guessArray.every(matching)){     // IF THEY MATCH
-                console.log("MATCHED PICTURES");
+                //console.log("MATCHED PICTURES");
 
                 setMatched(true);
                 setCorrectCount(correctCount => correctCount + 1);
               
 
             } else {
-                console.log("WRONG TRY AGAIN!");
+                //console.log("WRONG TRY AGAIN!");
                 setMatched(false);
                 setCardArray([]);
 
             }
+
             setFlipCount(0);
             setGuessArray([]);
             //setCardArray([]);

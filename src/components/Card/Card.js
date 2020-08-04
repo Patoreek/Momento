@@ -51,10 +51,11 @@ const Card = (props) => {
 
     const [disappearClass, setDisappearClass] = useState(null);
 
+    const [firstCardFlipped, setFirstCardFlipped] = useState(false);
 
     
     useEffect(() => {
-        console.log("CardSize -> " + props.cardSize);
+        //console.log("CardSize -> " + props.cardSize);
         
             if (props.cardSize === 16 ){
                 setSvgClass(classes.cardBackSVG__16);
@@ -95,13 +96,13 @@ const Card = (props) => {
                 //console.log(id);
                 //console.log(props.card.cardID);
                 if (props.card.cardID == id) {
-                    console.log("this cards ID matches the flipped Card.");
+                   // console.log("this cards ID matches the flipped Card.");
                     setTimeout(() => {
                         setDisappearClass(classes.disappear);
                     }, 1000);
                     
                 } else {
-                    console.log("Incorrect Card.")
+                    //console.log("Incorrect Card.")
                 }
             })
             setMatched(false);
@@ -122,11 +123,13 @@ const Card = (props) => {
 
     const flipCard = (givenCard) => {
         //console.log("Flipping card");
-        if (!startTimer){
+        if (!startTimer && !firstCardFlipped){
             setStartTimer(true);
+            setFirstCardFlipped(true);
+            console.log('First Card of the game has been flipped!');
         }
         
-        console.log(givenCard);
+        //console.log(givenCard);
 
                 if (!flipReset){
 
@@ -142,11 +145,11 @@ const Card = (props) => {
                    
                 }
 
-        console.log("GUESS ARRAY");
-        console.log(guessArray);
+        //console.log("GUESS ARRAY");
+        //console.log(guessArray);
 
-        console.log("CARD ARRAY");
-        console.log(cardArray);
+        //console.log("CARD ARRAY");
+        //console.log(cardArray);
 
 
     }

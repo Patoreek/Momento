@@ -28,6 +28,10 @@ export const ModalContentContext = createContext();
 
 export const CorrectCountContext = createContext();
 
+export const GameOverContext = createContext();
+
+export const TimerContext = createContext();
+
 
 
 
@@ -72,39 +76,48 @@ export const GlobalProvider = (props) => {
 
     const [correctCount, setCorrectCount] = useState(7); // Change this after finishing testing
 
+    const [gameOver, setGameOver] = useState(false);
+
+    const [ timer, setTimer ] = useState(0);
+
+
 
     return (
 
         <DifficultyContext.Provider value = {[difficulty, setDifficulty]}>
-            <ViewContext.Provider value = {[view, setView]}>
-                <ModeContext.Provider value={[mode, setMode]}>
-                    <FlipAllContext.Provider value={[flipAll, setFlipAll]}>
-                        <FlipCountContext.Provider value={[flipCount, setFlipCount]}>
-                            <FlipResetContext.Provider value={[flipReset, setFlipReset]}>
-                                <GuessArrayContext.Provider value={[guessArray, setGuessArray]}>
-                                    <CardArrayContext.Provider value={[cardArray, setCardArray]}>
-                                        <MatchedContext.Provider value={[matched, setMatched]}>
-                                            <StartTimerContext.Provider value={[startTimer, setStartTimer]}>
-                                                <GuessDisplayContext.Provider value={[guessDisplay, setGuessDisplay]}>
-                                                    <ShowModalContext.Provider value={[showModal, setShowModal]}>
-                                                        <ModalContentContext.Provider value={[modalContent, setModalContent]}>
-                                                            <CorrectCountContext.Provider value={[correctCount, setCorrectCount]}>
-
-                                                                {props.children}
-
-                                                            </CorrectCountContext.Provider>
-                                                        </ModalContentContext.Provider>
-                                                    </ShowModalContext.Provider>
-                                                </GuessDisplayContext.Provider>
-                                            </StartTimerContext.Provider>
-                                        </MatchedContext.Provider>
-                                    </CardArrayContext.Provider>
-                                </GuessArrayContext.Provider>
-                            </FlipResetContext.Provider>
-                        </FlipCountContext.Provider>
-                    </FlipAllContext.Provider>
-                </ModeContext.Provider>
-            </ViewContext.Provider>
+        <ViewContext.Provider value = {[view, setView]}>
+        <ModeContext.Provider value={[mode, setMode]}>
+        <FlipAllContext.Provider value={[flipAll, setFlipAll]}>
+        <FlipCountContext.Provider value={[flipCount, setFlipCount]}>
+        <FlipResetContext.Provider value={[flipReset, setFlipReset]}>
+        <GuessArrayContext.Provider value={[guessArray, setGuessArray]}>
+        <CardArrayContext.Provider value={[cardArray, setCardArray]}>
+        <MatchedContext.Provider value={[matched, setMatched]}>
+        <StartTimerContext.Provider value={[startTimer, setStartTimer]}>
+        <GuessDisplayContext.Provider value={[guessDisplay, setGuessDisplay]}>
+        <ShowModalContext.Provider value={[showModal, setShowModal]}>
+        <ModalContentContext.Provider value={[modalContent, setModalContent]}>
+        <CorrectCountContext.Provider value={[correctCount, setCorrectCount]}>
+        <GameOverContext.Provider value={[gameOver, setGameOver]}>
+        <TimerContext.Provider value={[timer, setTimer]}>
+            
+            {props.children}
+        
+        </TimerContext.Provider>                                      
+        </GameOverContext.Provider>
+        </CorrectCountContext.Provider>
+        </ModalContentContext.Provider>
+        </ShowModalContext.Provider>
+        </GuessDisplayContext.Provider>
+        </StartTimerContext.Provider>
+        </MatchedContext.Provider>
+        </CardArrayContext.Provider>
+        </GuessArrayContext.Provider>
+        </FlipResetContext.Provider>
+        </FlipCountContext.Provider>
+        </FlipAllContext.Provider>
+        </ModeContext.Provider>
+        </ViewContext.Provider>
         </DifficultyContext.Provider>
 
 
