@@ -22,15 +22,13 @@ const Footer = () => {
             <h5 className={classes.developedText}> Developed and Designed By Patrick Minda.</h5>
 
             <ul>
+                <li><a href="https://github.com/Patoreek" target="_blank">Github</a></li>
                 <li onClick={() => {
                     setShowModal(true);
                     setModalContent("about");
                     }}>ABOUT</li>
-                <li><a href="https://github.com/Patoreek" target="_blank">GITHUB</a></li>
-                <li onClick={() => {
-                    setShowModal(true);
-                    setModalContent("contact");
-                    }}>CONTACT</li>
+                <li><a href="https://github.com/Patoreek/Patoreek-Patrick_Minda_Portfolio" target="_blank">Portfolio</a></li>
+
                 
             </ul>
                     <PersonalLogo width="200" fill="#eee" opacity="20%" className={classes.signature} /> 
