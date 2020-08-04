@@ -1,0 +1,10 @@
+.guessDisplayContainer {
+    background-color: purple;
+    color: white;
+
+    font-size: 2rem;
+    padding: 3rem;
+
+    grid-row: 2 / 3;
+    grid-template-columns: 1 / 2;
+}

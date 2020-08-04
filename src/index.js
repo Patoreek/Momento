@@ -5,6 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { GlobalProvider } from './context/GlobalContext';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 ReactDOM.render(
   <React.StrictMode>
       <GlobalProvider>

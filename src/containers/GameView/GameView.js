@@ -9,10 +9,13 @@ import { ModeContext,
          FlipResetContext,
          GuessArrayContext,
          CardArrayContext,
-         MatchedContext } from '../../context/GlobalContext';
+         MatchedContext,
+         GuessDisplayContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
+import Timer from '../../components/Timer/Timer';
+import GuessDisplay from '../../components/GuessDisplay/GuessDisplay';
 
 
 const GameView = () => {
@@ -68,6 +71,9 @@ const GameView = () => {
 
     const [flipReset, setFlipReset] = useContext(FlipResetContext);
 
+    const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
+
+
 
 
     // FLIP COUNTER AND RESETTER
@@ -75,8 +81,9 @@ const GameView = () => {
         //console.log('In flipcount useeffect');
         if (flipCount === mode.numPairs){
             // FLIP ALL TO FALSE
-            console.log('FLIPCARD USEEFFECT HAS FOUND THAT FLIPCOUNT EQUALS NUM OF PAIRS! RESET CARDS NOW!');
-            
+            console.log('MAX CARDS FLIPPED AT ONCE');
+            setGuessDisplay(guessDisplay => guessDisplay + 1);
+
         // CHECKS IF IT MATCHES THE FIRST CARD WITH EVERY OTHER CARD
             const matching = (currentValue) => currentValue === guessArray[0];
             //console.log(guessArray.every(matching));
@@ -173,6 +180,8 @@ const GameView = () => {
         <div className={classes.gameView}>
             <Button type="Back">MENU</Button>
             <Button type="Flip-all">FLIP ALL</Button>
+            <Timer/>
+            <GuessDisplay/>
 
             {!isLoading && (
                 

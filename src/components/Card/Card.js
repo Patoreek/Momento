@@ -10,7 +10,8 @@ import { FlipAllContext,
          ModeContext,
          GuessArrayContext,
          CardArrayContext,
-         MatchedContext
+         MatchedContext,
+         StartTimerContext,
         } from '../../context/GlobalContext';
 
 
@@ -34,6 +35,8 @@ const Card = (props) => {
     const [cardArray, setCardArray] = useContext(CardArrayContext);
 
     const [matched, setMatched] = useContext(MatchedContext);
+
+    const [startTimer, setStartTimer] = useContext(StartTimerContext);
 
 
 
@@ -80,18 +83,21 @@ const Card = (props) => {
     
         }
 
+        setFlipCount(0);
+        setGuessArray([]);
+
     },[flipAll]);
 
     useEffect(() => {
         if (matched){
-            console.log('INSIDE USE-EFFECT FOR MATCHING!');
+            //console.log('INSIDE USE-EFFECT FOR MATCHING!');            
             cardArray.map(id => {
                 //console.log(id);
                 //console.log(props.card.cardID);
                 if (props.card.cardID == id) {
                     console.log("this cards ID matches the flipped Card.");
                     setTimeout(() => {
-                    setDisappearClass(classes.disappear);
+                        setDisappearClass(classes.disappear);
                     }, 1000);
                     
                 } else {
@@ -116,6 +122,10 @@ const Card = (props) => {
 
     const flipCard = (givenCard) => {
         //console.log("Flipping card");
+        if (!startTimer){
+            setStartTimer(true);
+        }
+        
         console.log(givenCard);
 
                 if (!flipReset){

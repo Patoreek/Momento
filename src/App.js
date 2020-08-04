@@ -6,20 +6,26 @@ import './App.scss';
 
 import MenuView from './containers/MenuView/MenuView';
 import GameView from './containers/GameView/GameView';
+import ModalComponent from './components/ModalComponent/ModalComponent';
 
 import Footer from './containers/Footer/Footer';
 
 import { ViewContext }from './context/GlobalContext';
+
 
 function App() {
 
 
   const [view, setView] = useContext(ViewContext);
 
+
+
   return (
     <div className="App">
        {view ==="Menu" ?  <MenuView/> : ''}
        {view ==="Game" ?   <GameView/> : ''}
+        <ModalComponent />
+
         <Footer/>
 
     </div>

@@ -4,7 +4,8 @@ import classes from './Button.module.scss';
 
 import { DifficultyContext,
          ViewContext,
-         FlipAllContext } from '../../context/GlobalContext';
+         FlipAllContext,
+         StartTimerContext } from '../../context/GlobalContext';
 
 
 
@@ -16,8 +17,9 @@ const Button = (props) => {
 
     const [flipAll, setFlipAll] = useContext(FlipAllContext);
 
-
     const [btnClass, setBtnClass] = useState(null);
+
+    const [ startTimer, setStartTimer ] = useContext(StartTimerContext);
 
     useEffect(() => {
         if (props.type === "Flip-all") {
@@ -47,7 +49,9 @@ const Button = (props) => {
         } else if (props.type === "Hard") {
             setDifficulty("Hard");
         } else if (props.type === "Back") {
-            setView("Menu");  
+            setView("Menu"); 
+            // Stop Timer
+            setStartTimer(false);
         }
         else if (props.type === "Flip-all") {
             setFlipAll(!flipAll);

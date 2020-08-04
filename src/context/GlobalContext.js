@@ -18,6 +18,16 @@ export const CardArrayContext = createContext();
 
 export const MatchedContext = createContext();
 
+export const StartTimerContext = createContext();
+
+export const GuessDisplayContext = createContext();
+
+export const ShowModalContext = createContext();
+
+export const ModalContentContext = createContext();
+
+
+
 
 
 
@@ -49,6 +59,17 @@ export const GlobalProvider = (props) => {
 
     const [matched, setMatched] = useState(false);
 
+    const [startTimer, setStartTimer] = useState(false);
+
+    const [guessDisplay, setGuessDisplay] = useState(0);
+
+    const [showModal, setShowModal] = useState(false);
+
+    const [modalContent, setModalContent] = useState(null);
+
+
+
+
     return (
 
         <DifficultyContext.Provider value = {[difficulty, setDifficulty]}>
@@ -60,9 +81,17 @@ export const GlobalProvider = (props) => {
                                 <GuessArrayContext.Provider value={[guessArray, setGuessArray]}>
                                     <CardArrayContext.Provider value={[cardArray, setCardArray]}>
                                         <MatchedContext.Provider value={[matched, setMatched]}>
+                                            <StartTimerContext.Provider value={[startTimer, setStartTimer]}>
+                                                <GuessDisplayContext.Provider value={[guessDisplay, setGuessDisplay]}>
+                                                    <ShowModalContext.Provider value={[showModal, setShowModal]}>
+                                                        <ModalContentContext.Provider value={[modalContent, setModalContent]}>
 
-                                            {props.children}
+                                                        {props.children}
 
+                                                        </ModalContentContext.Provider>
+                                                    </ShowModalContext.Provider>
+                                                </GuessDisplayContext.Provider>
+                                            </StartTimerContext.Provider>
                                         </MatchedContext.Provider>
                                     </CardArrayContext.Provider>
                                 </GuessArrayContext.Provider>
