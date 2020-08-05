@@ -16,10 +16,44 @@ $color-light-1:rgb(210, 210, 216);
 $color-light-2:rgb(211, 211, 211);
 
 
+
 //** Font
 
 
-
+    $font-primary: 'Staatliches', cursive; 
+    $font-secondary: 'Spartan', sans-serif;
+    $font-tertiary: 'Rowdies', cursive;
 
 
 //**
+
+
+
+// * CSS VARIABLES FOR REACT BOOTSTRAP COMPONENTS
+
+
+    :root {
+
+        //* COLORS
+
+        --color-primary-dark: #cd7a00;
+        --color-primary-light: #c88e0b;
+
+        --color-white: #eee;
+
+        --color-black: #000000 ;
+        --color-black-1: #151515;
+
+        --color-secondary-light: #5386E4;
+        --color-secondary: #3967C1;
+        --color-secondary-dark: #043185;
+
+        --color-light-1:rgb(210, 210, 216);
+        --color-light-2:rgb(211, 211, 211);
+
+        //* FONTS
+
+        --font-primary: 'Staatliches', cursive; 
+        --font-secondary: 'Spartan', sans-serif;
+        --font-tertiary: 'Rowdies', cursive;
+    }

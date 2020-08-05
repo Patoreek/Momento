@@ -10,7 +10,8 @@ import { DifficultyContext,
          GameOverContext,
          CorrectCountContext,
          GuessArrayContext,
-         FlipCountContext } from '../../context/GlobalContext';
+         FlipCountContext,
+         GuessDisplayContext } from '../../context/GlobalContext';
 
 
 const Button = (props) => {
@@ -34,6 +35,8 @@ const Button = (props) => {
     const [ guessArray, setGuessArray ] = useContext(GuessArrayContext);
 
     const [ flipCount, setFlipCount ] = useContext(FlipCountContext);
+
+    const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
 
 
     useEffect(() => {
@@ -77,6 +80,8 @@ const Button = (props) => {
             setGuessArray([]);
             // reset flipCount
             setFlipCount(0);
+            // reset guess Counter
+            setGuessDisplay(0);
 
             //! reset CardArray then reshuffle ?? maybe going back to menu then back into gameview will retrigger
             //! useEffect and do it automatically
@@ -91,8 +96,10 @@ const Button = (props) => {
 
     return (
         <div className={`${classes.btn} ${btnClass}`}>
+                {props.type == "Flip-all" ? <h3> This button is to be removed </h3> : ''}
                 <button className={classes.btnButton}
-                        onClick={buttonHandler}><span>{props.children}</span></button>
+                        onClick={buttonHandler}><span>{props.children}</span>
+                </button>
         </div>
     );
 };

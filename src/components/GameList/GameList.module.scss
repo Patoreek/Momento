@@ -1,14 +1,17 @@
 @import '../../sass/abstracts/variables';
 
 .gameListContainer {
+        display: block;
         width: 100%;
-        height: 100%;
+        height: 50%;
 
     .gameList {
         //background-color: saddlebrown;
         padding: 0px;
         .list {
             list-style: none;
+            //clear: both;
+            margin: 0;
     
             &__header {
                 background-color: $color-secondary;
@@ -44,6 +47,8 @@
                 font-family: 'Rowdies', cursive;
                 font-weight: 700;
                 color: $color-secondary;
+                display: block;
+                //line-height: 1;
     
                 .dimensionsText {
                     transition: all .2s ease;

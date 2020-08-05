@@ -88,7 +88,7 @@ const Timer = () => {
 
     return (
         <div className={classes.timer}>
-            {timer.toFixed(2)} Seconds
+            <span>{timer.toFixed(2)} Seconds</span>
         </div>
     );
 };

@@ -40,7 +40,8 @@
 
         
         .cardBackSVG {
-            fill: rgb(201, 185, 11);
+            fill:rgb(232, 218, 72);
+            //fill: rgb(201, 185, 11);
             opacity: 50%;
             backface-visibility: hidden;
 
@@ -53,14 +54,14 @@
 
             &__36 {
                 //36 cards
-                height: 10.5rem;
-                width: 8rem;
+                height: 9rem;
+                width: 6.5rem;
             }
 
             &__64 {
                 //64 Cards
-                height: 8rem;
-                width: 6rem;
+                height: 9rem;
+                width: 6.5rem;
             }
 
             

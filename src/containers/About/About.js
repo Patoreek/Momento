@@ -2,14 +2,16 @@ import React from 'react';
 
 import classes from './About.module.scss';
 
+import './About.css';
+
 import {Modal} from 'react-bootstrap';
 
 
 const About = (props) => {
     return (
         <div className={classes.modalContainer}>
-        <Modal.Header closeButton>
-            <Modal.Title dialogClassName={classes.modalTitle}>
+        <Modal.Header className="modalHeader" closeButton>
+            <Modal.Title className="modalTitle">
                 <h3 className={classes.title}>About</h3>
             </Modal.Title>
             </Modal.Header>

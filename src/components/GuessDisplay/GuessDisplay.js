@@ -12,7 +12,7 @@ const GuessDisplay = () => {
 
     return (
         <div className={classes.guessDisplayContainer}>
-            Number of Guesses: {guessDisplay}
+                Guesses: {guessDisplay}
         </div>
     );
 };

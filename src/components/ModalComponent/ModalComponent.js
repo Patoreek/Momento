@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import classes from './ModalComponent.module.scss'
+import classes from './ModalComponent.module.scss';
+import './ModalComponent.css';
 
 import {Modal, Button} from 'react-bootstrap';
 
@@ -31,8 +32,7 @@ const ModalComponent = () => {
     return (
         <Modal show={showModal}
               onHide={handleClose}
-              className={classes.modal}
-              dialogClassName={classes.customModal}
+              className="aboutModal"
         >
             {content}
         </Modal>

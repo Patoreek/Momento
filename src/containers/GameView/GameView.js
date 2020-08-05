@@ -196,8 +196,8 @@ const GameView = () => {
 
     return (
         <div className={classes.gameView}>
-            <Button type="Back">MENU</Button>
-            <Button type="Flip-all">FLIP ALL</Button>
+            <Button type="Back" className={classes.menuBtn}>MENU</Button>
+            <Button type="Flip-all" className={classes.flipAllBtn}>FLIP ALL</Button>
             <Timer/>
             <GuessDisplay/>
 
