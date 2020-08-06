@@ -30,6 +30,7 @@
         perspective: 150rem;
         -moz-perspective: 150rem;
         box-shadow: .2rem .5rem 1rem rgba($color-black, .8);
+        overflow: hidden;
 
         &__flipped {
 
@@ -44,7 +45,7 @@
             //fill: rgb(201, 185, 11);
             opacity: 50%;
             backface-visibility: hidden;
-
+            transform: scale(1.15);
 
             &__16, &__18 {
                 //16 & 18 cards

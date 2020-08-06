@@ -11,7 +11,8 @@ import { DifficultyContext,
          CorrectCountContext,
          GuessArrayContext,
          FlipCountContext,
-         GuessDisplayContext } from '../../context/GlobalContext';
+         GuessDisplayContext,
+         CardRenderCounterContext } from '../../context/GlobalContext';
 
 
 const Button = (props) => {
@@ -37,6 +38,9 @@ const Button = (props) => {
     const [ flipCount, setFlipCount ] = useContext(FlipCountContext);
 
     const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
+
+        const [cardRenderCounter, setCardRenderCounter] = useContext(CardRenderCounterContext);
+
 
 
     useEffect(() => {
@@ -82,6 +86,8 @@ const Button = (props) => {
             setFlipCount(0);
             // reset guess Counter
             setGuessDisplay(0);
+            //reset cardCounter
+            setCardRenderCounter(0);
 
             //! reset CardArray then reshuffle ?? maybe going back to menu then back into gameview will retrigger
             //! useEffect and do it automatically

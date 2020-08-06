@@ -32,7 +32,7 @@ export const GameOverContext = createContext();
 
 export const TimerContext = createContext();
 
-
+export const CardRenderCounterContext = createContext();
 
 
 
@@ -80,6 +80,8 @@ export const GlobalProvider = (props) => {
 
     const [ timer, setTimer ] = useState(0);
 
+    const [cardRenderCounter, setCardRenderCounter] = useState(0);
+
 
 
     return (
@@ -100,9 +102,11 @@ export const GlobalProvider = (props) => {
         <CorrectCountContext.Provider value={[correctCount, setCorrectCount]}>
         <GameOverContext.Provider value={[gameOver, setGameOver]}>
         <TimerContext.Provider value={[timer, setTimer]}>
-            
+        <CardRenderCounterContext.Provider value={[cardRenderCounter, setCardRenderCounter]}>
+
             {props.children}
-        
+
+        </CardRenderCounterContext.Provider>
         </TimerContext.Provider>                                      
         </GameOverContext.Provider>
         </CorrectCountContext.Provider>

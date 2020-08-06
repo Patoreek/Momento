@@ -12,6 +12,7 @@ import { FlipAllContext,
          CardArrayContext,
          MatchedContext,
          StartTimerContext,
+         CardRenderCounterContext
         } from '../../context/GlobalContext';
 
 
@@ -37,6 +38,9 @@ const Card = (props) => {
     const [matched, setMatched] = useContext(MatchedContext);
 
     const [startTimer, setStartTimer] = useContext(StartTimerContext);
+
+    const [cardRenderCounter, setCardRenderCounter] = useContext(CardRenderCounterContext);
+
 
 
 
@@ -72,7 +76,11 @@ const Card = (props) => {
                 setSvgClass(classes.cardBackSVG__64);
             }
 
+            setCardRenderCounter(cardRenderCounter => cardRenderCounter + 1);
+
             setIsLoading(false);
+
+            console.log(cardRenderCounter);
 
     },[])
 

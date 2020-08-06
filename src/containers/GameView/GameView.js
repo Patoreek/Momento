@@ -13,7 +13,8 @@ import { ModeContext,
          GuessDisplayContext,
          CorrectCountContext,
          StartTimerContext,
-         GameOverContext } from '../../context/GlobalContext';
+         GameOverContext,
+         CardRenderCounterContext } from '../../context/GlobalContext';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
@@ -21,6 +22,9 @@ import Timer from '../../components/Timer/Timer';
 import GuessDisplay from '../../components/GuessDisplay/GuessDisplay';
 import EndGameModal from '../../components/EndGameModal/EndGameModal';
 
+
+import { css } from "@emotion/core";
+import GridLoader from 'react-spinners/GridLoader';
 
 
 const GameView = () => {
@@ -33,6 +37,9 @@ const GameView = () => {
     const [cardArray, setCardArray] = useContext(CardArrayContext);
 
     const [matched, setMatched] = useContext(MatchedContext);
+
+    const [cardRenderCounter, setCardRenderCounter] = useContext(CardRenderCounterContext);
+
 
 
     // mode.numPictures
@@ -129,6 +136,8 @@ const GameView = () => {
     // CREATE GRID
     useEffect(() => {
 
+        setIsLoading(true);
+
         if (totalNum === 16){
             numOfRows = 4;
             numOfCols = 4;
@@ -192,6 +201,12 @@ const GameView = () => {
 
     },[]);
 
+    // display: block;
+    // margin: 0 auto;
+
+    const override = css`
+        grid-column: 1 / -1;
+    `;
     
 
     return (
@@ -203,17 +218,46 @@ const GameView = () => {
 
             {correctCount == mode.numPictures ? <EndGameModal/> : ''}
 
-            {!isLoading && (
+
+                    {/* <GridLoader
+                        css={override}
+                        size={25}
+                        color={"#c88e0b"}
+                    /> */}
+    
+
+
+
                 
                 <div className={classes.gameContainer}>
-                    <div className={`${classes.grid} ${grid}`}>
-                    {cardsArray.map(card => (  
-                        <Card card={card} cardSize={cardSize}/>
-                    ))}
-                    </div>
+                    {!isLoading && (
+                        <div className={`${classes.grid} ${grid}`}>
+                            {cardRenderCounter != cardsArray.length && (
+                                <GridLoader
+                                    css={override}
+                                    size={25}
+                                    color={"#c88e0b"}
+                                />
+                            )}
+                            {cardsArray.map(card => (  
+                                <Card card={card} cardSize={cardSize}/>
+                            ))}
+                        </div>
+                    )}
+
+                    {isLoading && (
+                        <div className={`${classes.grid} ${grid}`}>
+                            <GridLoader
+                                css={override}
+                                size={25}
+                                color={"#c88e0b"}
+                            />
+                        </div>
+                    )}
+
                 </div>
 
-            )}
+
 
         </div>
     );
