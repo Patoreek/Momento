@@ -1,9 +1,9 @@
 .aboutModal {
-    background-color: rgba(0, 0, 0, 0.612);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .aboutModal  .modal-content {
-    background-color: #eee;
+    background-color: var(--color-white) !important;
     border-radius: .7rem;
     overflow: hidden !important;
 }

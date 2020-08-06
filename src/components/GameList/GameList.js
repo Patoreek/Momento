@@ -5,6 +5,11 @@ import { DifficultyContext,
          ViewContext,
          ModeContext } from '../../context/GlobalContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';     
+
+import Button from '../Button/Button';
+
 
 const GameList = () => {
 
@@ -32,7 +37,10 @@ const GameList = () => {
 
                 {difficulty === "Easy" && (
                     <ul className={classes.list}>
-                        <li className={classes.list__item, classes.list__header}><span>Easy</span></li>
+                        <li className={classes.list__item, classes.list__header}>
+                            <span>Easy</span>
+                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
+                        </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(2, 8)}>
                                 <span className={classes.dimensionsText}>2 x 8</span>
@@ -51,7 +59,10 @@ const GameList = () => {
             <div className={classes.gameList}>
                 {difficulty === "Medium" && (
                     <ul className={classes.list}>
-                        <li className={classes.list__item, classes.list__header}><span>Medium</span></li>
+                        <li className={classes.list__item, classes.list__header}>
+                            <span>Medium</span>
+                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
+                        </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(3, 6)}>
                                 <span className={classes.dimensionsText}>3 x 6</span>
@@ -66,7 +77,10 @@ const GameList = () => {
             <div className={classes.gameList}>
                 {difficulty === "Hard" && (
                     <ul className={classes.list}>
-                        <li className={classes.list__item, classes.list__header}><span>Hard</span></li>
+                        <li className={classes.list__item, classes.list__header}>
+                            <span>Hard</span>
+                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
+                        </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(4, 16)}>
                                 <span className={classes.dimensionsText}>4 x 16</span>

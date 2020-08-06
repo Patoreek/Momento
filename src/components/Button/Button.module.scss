@@ -1,14 +1,8 @@
 @import '../../sass/abstracts/variables';
 
 .btn {
-
-
-
-
-    .btnButton {
+  .btnButton {
         display: inline-block;
-        //background: linear-gradient(180deg, rgba(72,10,131,.7) 0%, rgba(97,0,190,.7) 100%);
-        //background: linear-gradient(rgba(33, 131, 128, .8), rgba(24, 98, 95, .8));
         background: $color-secondary-light;
         box-shadow: 0 1.5rem 2rem rgba($color-black, .3);
         border: none;
@@ -21,14 +15,14 @@
         overflow: hidden;
         height: 100%;
         width: auto;
-        // Style for Main menu button
+
         padding: 1rem 3rem;
         margin: 0 4rem;
 
         span {
             position: relative;
             color: $color-white;
-            font-family: 'Staatliches', cursive; 
+            font-family: $font-primary; 
             font-size: 2.5rem;
             z-index: 10;
         }
@@ -42,7 +36,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            background-image:linear-gradient(120deg, transparent, transparent 50%, rgba($color-secondary-dark, 0.386) 50%);
+            background-image:linear-gradient(120deg, transparent, transparent 50%, rgba($color-secondary-dark, 0.4) 50%);
             //background-image:linear-gradient(120deg, transparent, transparent 50%, rgba($color-light-1, 0.386) 50%);
             background-size:250%;
             transition: .3s ease;
@@ -87,12 +81,71 @@
         }
     }
 
+    .infoBtn {
+        display: block;
+        background: $color-secondary-light;
+        filter: brightness(110%);
+        box-shadow: 0 1.5rem 2rem rgba($color-black, .4);
+        border: none;
+        border-radius: 50%;
+        outline: none;
+        transition: all .3s ease;
+        z-index: 10;
+        text-transform: uppercase;
+        position: absolute;
+        overflow: visible;
+        height: 2.5rem;
+        width: 2.5rem;
+        
+
+        margin: 1rem .5rem;
+        padding: 0 1rem;
+        
+        top: 0;
+        right: 0;
+
+        &::before {
+           display: none;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            //background-color: rgba($color-secondary-dark, .4);
+            transition: .3s ease;
+        }
+
+        &:hover {
+            transform: translateY(0px) scale(1.1);
+            //filter: brightness(70%);
+            box-shadow: 0.5rem 1.7rem 1.5rem rgba($color-black, .6);
+            filter: brightness(110%);
+            
+            &::after {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        &:active,
+        &:focus, {
+            transform: translateY(-1px) scale(1);
+            //filter: brightness(90%); 
+            box-shadow: 0 1.2rem 3.5rem rgba($color-black, .5);
+        }
+        
+    }
 }
 
 .backBtn {
     grid-row: 1 / 2;
     grid-column: 3 / span 2;
-    //background-color: red;
 }
 
 .flipAllBtn {

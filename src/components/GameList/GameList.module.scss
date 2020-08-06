@@ -6,28 +6,28 @@
         height: 50%;
 
     .gameList {
-        //background-color: saddlebrown;
         padding: 0px;
+        width: 100%;
         .list {
             list-style: none;
-            //clear: both;
             margin: 0;
+            width: 100%;
     
             &__header {
                 background-color: $color-secondary;
-                //background-color: rgb(4, 72, 132);
-                //color: rgba(29, 150, 255, 0.468);
-                color: rgba($color-secondary-light, 1);
+                color: rgba($color-secondary-light, .7);
                 font-size: 4.5rem;
                 line-height: .9;
                 height: 4.5rem;
                 text-align: left;
                 padding:0;
-                border-bottom: 1px solid $color-secondary-dark;
+                border-bottom: 1px solid $color-grey-3;
                 //font-family: 'Staatliches', cursive;
                 font-family: 'Rowdies', cursive;
                 text-transform: uppercase;
                 letter-spacing: -3px;
+                position: relative;
+                width: 100%;
     
                 span {
                     //background-color: yellow;
@@ -37,18 +37,16 @@
             }
     
             &__item {
-                //background-color: pink;
                 padding: 2rem 1.5rem;
                 width: 100%;
                 font-size: 3rem;
                 margin: 0 auto;
                 text-align: center;
                 transition: all .2s ease;
-                font-family: 'Rowdies', cursive;
+                font-family: $font-tertiary;
                 font-weight: 700;
                 color: $color-secondary;
                 display: block;
-                //line-height: 1;
     
                 .dimensionsText {
                     transition: all .2s ease;
@@ -56,7 +54,6 @@
                 }
     
                 &:hover {
-                    //background-color: rgb(151, 198, 255);
                     background-color: rgba($color-secondary-light, .4);
                 }
     
@@ -64,21 +61,21 @@
                   display: inline-block;
                   transform: translateY(-3px) scale(1.2);
                 }
-    
-              
-                
+             
                 &:not(:last-child){
                     border-bottom: 1px solid rgba($color-secondary-dark, .8);
                 }
     
             }
-    
-            
-        }
-    
+        }   
     }
+}
 
-    .gameListEasy {
-        background-color: orchid;
-    }
+.icon {
+    margin-bottom: .7rem;
+    font-size: 1.4rem;
+    padding: 0 !important;
+    //background-color: red;
+    display: block;
+    margin: 0 auto;
 }

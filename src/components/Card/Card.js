@@ -124,7 +124,7 @@ const Card = (props) => {
             setTimeout(() => {
                 setIsFlipped(false);
                 setFlipReset(false);
-            }, 1500);
+            }, 1000);
         } 
 
     },[flipReset]);

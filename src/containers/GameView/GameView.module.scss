@@ -1,4 +1,5 @@
 @import '../../sass/abstracts/variables';
+@import '../../sass/abstracts/mixins';
 
 .gameView {
     width: 100%;
@@ -8,22 +9,29 @@
     background-size: cover;
     background-position: center;
     padding: 1rem 0;
-    // display: flex;
+
     justify-content: center;
     align-items: center;
-    display: grid;
-    // grid-template-columns: 0.5fr 0.5fr repeat(8,  minmax(min-content,max-content)) 1fr;
-    grid-template-columns: 0.5fr 0.5fr repeat(8,  minmax(min-content,max-content)) 1fr;
 
+    display: grid;
+    grid-template-columns: .5fr .5fr repeat(8,  minmax(min-content,max-content)) 1fr;
     grid-gap: 1rem;
+
+    @include respond(tab-port){ //width < 900?
+       // grid-template-columns: .5fr .5fr repeat(8,  minmax(min-content,max-content)) 1fr;
+    }
+
+    @include respond(phone){ // width < 600?
+        grid-template-columns: repeat(8,  minmax(min-content,max-content));
+        grid-gap: .5rem;
+
+    }
 
 
 
     .gameContainer {
         width: auto;
         height: auto;
-        //background-color: paleturquoise;
-        //background: rgba($color-white, .9);
         background-image: linear-gradient(rgba($color-secondary-light, .7), rgba($color-secondary-dark, .7)), url('../../img/texture-2.jpg');
         background-size: 175%;
         background-position: center;
@@ -35,6 +43,8 @@
         display: grid;
 
         min-height: 100%;
+
+        position: relative;
     }
 
     .grid {
@@ -62,6 +72,16 @@
             //** 8 x 8 GRID **//
             grid-template-columns: repeat(16, min-content);
             grid-template-rows: repeat(4, min-content);
+
+            @include respond(tab-port){ //width < 900?
+                grid-template-columns: repeat(8, min-content);
+                grid-template-rows: repeat(8, min-content);
+            }
+        
+            @include respond(phone){ // width < 600?
+                grid-template-columns: repeat(8, min-content);
+                grid-template-rows: repeat(8, min-content);
+            }
         }
 
        

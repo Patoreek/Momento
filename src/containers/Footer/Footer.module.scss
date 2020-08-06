@@ -1,4 +1,6 @@
 @import '../../sass/abstracts/variables';
+@import '../../sass/abstracts/mixins';
+
 
 .footer {
     width: 100%;
@@ -16,9 +18,13 @@
         letter-spacing: 2px;
         grid-row: 3 / 4;
         grid-column: 2 / 3;
-        font-family: 'Spartan', sans-serif;
+        font-family: $font-secondary;
         font-weight: 400;
         color: $color-white;
+
+        @include respond(tab-port){ // width < 600?
+            grid-column: 1 / -1;
+        }
     }
 
     .developedText {
@@ -26,9 +32,15 @@
         letter-spacing: 2px;
         grid-row: 2 / 3;
         grid-column: 2 / 3;
-        font-family: 'Spartan', sans-serif;
+        font-family: $font-secondary;
         font-weight: 400;
         color: $color-white;
+
+        @include respond(tab-port){ // width < 600?
+            grid-column: 1 / -1;
+        }
+
+
     }
 
     ul {
@@ -42,11 +54,16 @@
             font-size: 2rem;
             letter-spacing: 3px;
             color: $color-white;
-            font-family: 'Staatliches', cursive;
+            font-family: $font-primary;
             text-transform:uppercase;
             position: relative;
-            //background-color: saddlebrown;
             text-align: center;
+
+            @include respond(tab-port){ // width < 600?
+                margin: 2rem 2.5rem;
+            }
+
+            
 
             a {
                 text-decoration: none;
@@ -86,9 +103,12 @@
         margin-right: 10rem;
         margin-top: -7rem;
         padding: 0;
-        //background-color: saddlebrown;
         width: 15rem;
         height: 15rem; 
         align-self: start;  
+
+        @include respond(tab-port){ // width < 600?
+            margin-right: 0rem;
+        }
     }
 }

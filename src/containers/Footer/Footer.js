@@ -15,10 +15,12 @@ const Footer = () => {
 
     const [modalContent, setModalContent] = useContext(ModalContentContext);
 
+    const date = new Date;
+
 
     return (
         <footer className={classes.footer}>
-            <h5 className={classes.copyrightText}> Memento Copyright and Trademark Goes here.</h5>
+            <h5 className={classes.copyrightText}> &copy; Copyright {date.getFullYear()}, Memento</h5>
             <h5 className={classes.developedText}> Developed and Designed By Patrick Minda.</h5>
 
             <ul>

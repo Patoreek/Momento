@@ -12,7 +12,9 @@ import { DifficultyContext,
          GuessArrayContext,
          FlipCountContext,
          GuessDisplayContext,
-         CardRenderCounterContext } from '../../context/GlobalContext';
+         CardRenderCounterContext,
+         ShowModalContext,
+         ModalContentContext } from '../../context/GlobalContext';
 
 
 const Button = (props) => {
@@ -22,8 +24,6 @@ const Button = (props) => {
     const [view, setView] = useContext(ViewContext);
 
     const [flipAll, setFlipAll] = useContext(FlipAllContext);
-
-    const [btnClass, setBtnClass] = useState(null);
 
     const [ startTimer, setStartTimer ] = useContext(StartTimerContext);
     
@@ -39,16 +39,25 @@ const Button = (props) => {
 
     const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
 
-        const [cardRenderCounter, setCardRenderCounter] = useContext(CardRenderCounterContext);
+    const [cardRenderCounter, setCardRenderCounter] = useContext(CardRenderCounterContext);
 
+    const [showModal, setShowModal] = useContext(ShowModalContext);
 
+    const [modalContent, setModalContent] = useContext(ModalContentContext);
+
+    const [btnContainerClass, setBtnContainerClass] = useState(null);
+
+    const [btnClass, setBtnClass] = useState(null);
 
     useEffect(() => {
         if (props.type === "Flip-all") {
-            setBtnClass(classes.flipAllBtn); 
+            setBtnContainerClass(classes.flipAllBtn); 
         }
         else if (props.type === "Back") {
-            setBtnClass(classes.backBtn); 
+            setBtnContainerClass(classes.backBtn); 
+        }
+        else if (props.type === "Info") {
+            setBtnClass(classes.infoBtn);
         }
     },[]);
 
@@ -96,14 +105,18 @@ const Button = (props) => {
         else if (props.type === "Flip-all") {
             setFlipAll(!flipAll);
         }
+        else if (props.type === "Info") {
+            setShowModal(true);
+            setModalContent("info");
+        }
 
         //console.log('The chosen difficulty is: ' + difficulty);
     }
 
     return (
-        <div className={`${classes.btn} ${btnClass}`}>
+        <div className={`${classes.btn} ${btnContainerClass}`}>
                 {props.type == "Flip-all" ? <h3> This button is to be removed </h3> : ''}
-                <button className={classes.btnButton}
+                <button className={`${classes.btnButton} ${btnClass}`}
                         onClick={buttonHandler}><span>{props.children}</span>
                 </button>
         </div>

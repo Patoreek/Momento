@@ -9,6 +9,7 @@ import { ShowModalContext,
 
 import About from '../../containers/About/About';
 import Contact from '../../containers/Contact/Contact';
+import Info from '../../containers/Info/Info';
 
 const ModalComponent = () => {
 
@@ -24,9 +25,13 @@ const ModalComponent = () => {
 
     if (modalContent === "about") {
         content = <About/>;
-    } else if (modalContent === "contact") {
-        content = <Contact/>;
+    } else if (modalContent === "info") {
+        content = <Info/>;
     }
+    
+    // else if (modalContent === "contact") {
+    //     content = <Contact/>;
+    // }
 
     
     return (

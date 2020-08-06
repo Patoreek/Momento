@@ -11,7 +11,7 @@ const MenuView = () => {
             <div className={classes.nameContainer}></div>
              <h1 className={classes.name}>MOMENTO</h1>
              <span className={classes.subtitle}>
-                 A Challenging minigame of memory.
+                 A challenging minigame of memory.
              </span>
             <div className={classes.buttonContainer}>
                 <Button type="Easy">Easy</Button>

@@ -6,16 +6,7 @@
     padding: 0;
     transition: all .3s ease;
     position: relative;
-    //overflow:hidden;
     border-radius:5px;
-
-    // &:hover .cardBack {
-    //     transform: rotateY(180deg);
-    // }    
-
-    // &:hover .cardFront {
-    //     transform: rotateY(360deg);
-    // }
 
     &:hover {
         transform: translate(5px, -5px) scale(1.1);
@@ -41,11 +32,10 @@
 
         
         .cardBackSVG {
-            fill:rgb(232, 218, 72);
-            //fill: rgb(201, 185, 11);
+            fill: $color-card;
             opacity: 50%;
             backface-visibility: hidden;
-            transform: scale(1.15);
+            transform: scale(1.1) translateX(-.1rem); // for another style, remove translate and make scale 1.15
 
             &__16, &__18 {
                 //16 & 18 cards
@@ -71,7 +61,6 @@
 
     .cardFront {
         background-color: $color-white;
-        color: blue;
         position: absolute;
         top: 0;
         left: 0;
@@ -98,25 +87,9 @@
 
         
         &__flipped {
-
             transform: rotateY(360deg);
-            //opacity: 0;
-
         }
-
-        // display: none;
     }
-
-
-
-
-        
-
-
-
-
-
-   
 }
 
 .disappear {

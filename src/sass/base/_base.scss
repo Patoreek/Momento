@@ -14,11 +14,17 @@ html {
     // Order of media queries is important!
 
     @include respond(tab-land){ // width < 1200?
-        font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%;
+        //font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%;
+        font-size: 45%;
     }
 
     @include respond(tab-port){ //width < 900?
-        font-size: 50%; // 1 rem = 8px, 8/16 = 50%;
+        font-size: 40%; // 1 rem = 8px, 8/16 = 50%;
+    }
+
+    @include respond(phone){ // width < 600?
+        //font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%;
+        font-size: 35%;
     }
 
 

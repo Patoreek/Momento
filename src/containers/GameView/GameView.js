@@ -205,30 +205,26 @@ const GameView = () => {
     // margin: 0 auto;
 
     const override = css`
-        grid-column: 1 / -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     `;
     
 
     return (
         <div className={classes.gameView}>
             <Button type="Back" className={classes.menuBtn}>MENU</Button>
-            <Button type="Flip-all" className={classes.flipAllBtn}>FLIP ALL</Button>
+            {/* 
+                This Button is to help find the matching cards when developing
+                <Button type="Flip-all" className={classes.flipAllBtn}>FLIP ALL</Button>
+            */}
             <Timer/>
             <GuessDisplay/>
 
             {correctCount == mode.numPictures ? <EndGameModal/> : ''}
-
-
-                    {/* <GridLoader
-                        css={override}
-                        size={25}
-                        color={"#c88e0b"}
-                    /> */}
     
-
-
-
-                
+            
                 <div className={classes.gameContainer}>
                     {!isLoading && (
                         <div className={`${classes.grid} ${grid}`}>
@@ -245,7 +241,7 @@ const GameView = () => {
                         </div>
                     )}
 
-                    {isLoading && (
+                    {/* {!isLoading && (
                         <div className={`${classes.grid} ${grid}`}>
                             <GridLoader
                                 css={override}
@@ -253,7 +249,7 @@ const GameView = () => {
                                 color={"#c88e0b"}
                             />
                         </div>
-                    )}
+                    )} */}
 
                 </div>
 
