@@ -5,10 +5,7 @@ import { DifficultyContext,
          ViewContext,
          ModeContext } from '../../context/GlobalContext';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfo } from '@fortawesome/free-solid-svg-icons';     
 
-import Button from '../Button/Button';
 
 
 const GameList = () => {
@@ -39,7 +36,6 @@ const GameList = () => {
                     <ul className={classes.list}>
                         <li className={classes.list__item, classes.list__header}>
                             <span>Easy</span>
-                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
                         </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(2, 8)}>
@@ -61,7 +57,6 @@ const GameList = () => {
                     <ul className={classes.list}>
                         <li className={classes.list__item, classes.list__header}>
                             <span>Medium</span>
-                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
                         </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(3, 6)}>
@@ -79,7 +74,6 @@ const GameList = () => {
                     <ul className={classes.list}>
                         <li className={classes.list__item, classes.list__header}>
                             <span>Hard</span>
-                            <Button type="Info"><FontAwesomeIcon icon={faInfo} className={classes.icon}/></Button>
                         </li>
                         <li className={classes.list__item}
                             onClick={() => getGameDimensions(4, 16)}>

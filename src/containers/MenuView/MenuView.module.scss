@@ -56,6 +56,18 @@
         font-family: $font-secondary;
         font-weight: 700;
         color: $color-secondary-dark;
+        position: relative;
+        
+        padding: .5rem 6rem;
+
+        .icon {
+            margin-bottom: .7rem;
+            font-size: 2rem;
+            padding: 0 !important;
+            display: block;
+            margin: 0 auto;
+            filter: brightness(120%);
+        }
     }
 
     .buttonContainer {
@@ -70,7 +82,7 @@
         width: 100%;
         height: auto;
         background-color: rgba($color-white, .75);
-        border: 1px solid $color-secondary-light;
+        border: 1px solid $color-grey-3;
         box-shadow: 0 2rem 5rem rgba($color-black, .8);
         border-radius: .7rem;
         overflow: hidden;
