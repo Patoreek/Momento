@@ -3,7 +3,12 @@
 }
 
 .aboutModal  .modal-content {
+    margin: 0 auto;
+    width: 90% !important;
     background-color: var(--color-white) !important;
     border-radius: .7rem;
     overflow: hidden !important;
+
 }
+
+

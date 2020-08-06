@@ -17,6 +17,25 @@
     word-wrap: normal;
     font-family: $font-secondary;
     font-weight: 400;
+
+    .easyText {
+        color: green;
+    }
+
+    .mediumText {
+        color: orange;
+    }
+
+    .hardText {
+        color: red;
+    }
+
+    span {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+
 }
 
 

@@ -14,7 +14,7 @@ const EndGameModal = () => {
 
                 <div className={classes.endGameModal}>
                     <h3 className={classes.title}>Congratulations!</h3>
-                    <p className={classes.timeText}>You completed this level in {timer} seconds!</p>
+                    <p className={classes.timeText}>You completed this level in {timer.toFixed(1)} seconds!</p>
                     <div className={classes.btnContainer}>
                         <div className={classes.menuBtn}>
                             <Button type="Back">Main Menu</Button>

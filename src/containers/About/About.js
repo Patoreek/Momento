@@ -17,19 +17,13 @@ const About = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <p className={classes.description}>
-                    Fusce maximus convallis lobortis. Sed iaculis tortor ligula,
-                    et rutrum mauris iaculis non. Quisque euismod ut est ac aliquet.
-                    Cras accumsan tincidunt aliquet. Nulla interdum tincidunt augue,
-                    at bibendum orci viverra nec. Suspendisse at eros risus. Vivamus
-                    dolor quam, dictum id auctor eu, malesuada at neque. Donec sagittis
-                    turpis ac nisi accumsan consequat. Donec fermentum augue eu dolor tempor
-                    molestie. Praesent posuere, nulla in consectetur efficitur, justo ante
-                    porttitor justo, at suscipit enim diam gravida mauris. Cras vestibulum
-                    est quis augue commodo, a dapibus augue dictum. Donec ullamcorper dignissim 
-                    sem at sodales. Sed rutrum, nibh euismod aliquam suscipit, quam nulla vehicula 
-                    libero, eu mollis ex ante sed ex. Aliquam metus est, maximus sit amet ultrices 
-                    dictum, aliquet convallis velit. Nunc at aliquet libero, nec pellentesque 
-                    turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    This game was developed as a project to showcase my web development abilities.
+                    <br/>
+                    Memento is a game of memory with emojis. This project was an idea that I decided to build because
+                    I believed it gave me a good challenge to test out my CSS abilities after learning more advanced functionality.
+                    It was a good-sized project and not too complicated. I also worked with some new react libraries that helped 
+                    me implement specific functionality for my project. I also managed to become better at using the elements tab 
+                    and console in the developer tools in chrome and firefox.
                 </p>
             </Modal.Body>
         </div>

@@ -17,19 +17,16 @@ const Info = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <p className={classes.description}>
-                    Fusce maximus convallis lobortis. Sed iaculis tortor ligula,
-                    et rutrum mauris iaculis non. Quisque euismod ut est ac aliquet.
-                    Cras accumsan tincidunt aliquet. Nulla interdum tincidunt augue,
-                    at bibendum orci viverra nec. Suspendisse at eros risus. Vivamus
-                    dolor quam, dictum id auctor eu, malesuada at neque. Donec sagittis
-                    turpis ac nisi accumsan consequat. Donec fermentum augue eu dolor tempor
-                    molestie. Praesent posuere, nulla in consectetur efficitur, justo ante
-                    porttitor justo, at suscipit enim diam gravida mauris. Cras vestibulum
-                    est quis augue commodo, a dapibus augue dictum. Donec ullamcorper dignissim 
-                    sem at sodales. Sed rutrum, nibh euismod aliquam suscipit, quam nulla vehicula 
-                    libero, eu mollis ex ante sed ex. Aliquam metus est, maximus sit amet ultrices 
-                    dictum, aliquet convallis velit. Nunc at aliquet libero, nec pellentesque 
-                    turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Memorize where each card is and match them together as quick as possible.
+                    <br/>
+                    <br/>
+                    <span className={classes.easyText}>Easy</span> - Pair up <span>2</span> cards together. There are options of: <span>8</span>, <span>18</span> and <span>32</span> pairs.
+                    <br/>
+                    <br/>
+                    <span className={classes.mediumText}>Medium</span> - Pair up  <span>3</span> cards together. There are options of: <span>6</span> and <span>12</span> pairs.
+                    <br/>
+                    <br/>
+                    <span className={classes.hardText}>Hard</span> - Pair up  <span>4</span> cards together. There are options of: <span>16</span> pairs.
                 </p>
             </Modal.Body>
         </div>
