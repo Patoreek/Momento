@@ -104,7 +104,7 @@ const GameView = () => {
         //console.log('In flipcount useeffect');
         if (flipCount === mode.numPairs){
             // FLIP ALL TO FALSE
-            console.log('MAX CARDS FLIPPED AT ONCE');
+            //console.log('MAX CARDS FLIPPED AT ONCE');
             setGuessDisplay(guessDisplay => guessDisplay + 1);
 
         // CHECKS IF IT MATCHES THE FIRST CARD WITH EVERY OTHER CARD
@@ -201,9 +201,6 @@ const GameView = () => {
 
     },[]);
 
-    // display: block;
-    // margin: 0 auto;
-
     const override = css`
         position: absolute;
         top: 50%;
@@ -236,20 +233,10 @@ const GameView = () => {
                                 />
                             )}
                             {cardsArray.map(card => (  
-                                <Card card={card} cardSize={cardSize}/>
+                                <Card card={card} cardSize={cardSize} key={card.cardID}/>
                             ))}
                         </div>
                     )}
-
-                    {/* {!isLoading && (
-                        <div className={`${classes.grid} ${grid}`}>
-                            <GridLoader
-                                css={override}
-                                size={25}
-                                color={"#c88e0b"}
-                            />
-                        </div>
-                    )} */}
 
                 </div>
 

@@ -8,7 +8,7 @@ import {
 
 const GuessDisplay = () => {
 
-    const [guessDisplay, setGuessDisplay] = useContext(GuessDisplayContext);
+    const [guessDisplay] = useContext(GuessDisplayContext);
 
     return (
         <div className={classes.guessDisplayContainer}>

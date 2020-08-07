@@ -80,7 +80,7 @@ const Card = (props) => {
 
             setIsLoading(false);
 
-            console.log(cardRenderCounter);
+            //console.log(cardRenderCounter);
 
     },[])
 
@@ -134,7 +134,7 @@ const Card = (props) => {
         if (!startTimer && !firstCardFlipped){
             setStartTimer(true);
             setFirstCardFlipped(true);
-            console.log('First Card of the game has been flipped!');
+            //console.log('First Card of the game has been flipped!');
         }
         
         //console.log(givenCard);

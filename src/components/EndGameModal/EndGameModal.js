@@ -7,7 +7,7 @@ import { TimerContext } from '../../context/GlobalContext';
 
 const EndGameModal = () => {
 
-    const [timer, setTimer] = useContext(TimerContext);
+    const [timer] = useContext(TimerContext);
 
     return (
         <div className={classes.endGameContainer}>

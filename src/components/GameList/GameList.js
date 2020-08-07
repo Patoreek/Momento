@@ -10,14 +10,14 @@ import { DifficultyContext,
 
 const GameList = () => {
 
-    const [difficulty, setDifficulty] = useContext(DifficultyContext);
-    const [view, setView] = useContext(ViewContext);
+    const [ difficulty ] = useContext(DifficultyContext);
+    const [ view, setView ] = useContext(ViewContext);
     const [mode, setMode] = useContext(ModeContext);
 
     const getGameDimensions = (dimNum1, dimNum2) => {
-        console.log('Working on click');
-        console.log('Dimnum1 -> ' + dimNum1);
-        console.log('Dimnum2 -> ' + dimNum2);
+        //console.log('Working on click');
+        //console.log('Dimnum1 -> ' + dimNum1);
+        //console.log('Dimnum2 -> ' + dimNum2);
 
         setMode({
            numPictures: dimNum2,
